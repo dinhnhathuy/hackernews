@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="Vue logo" src="../assets/logo.png" @click="show"/>
     <HelloWorld msg="Welcome hackernews app" />
   </div>
 </template>
@@ -13,6 +13,14 @@ export default {
   name: "Home",
   components: {
     HelloWorld
-  }
+  },
+  create(){
+    console.log(this.$store.state.article);
+  },
+  methods: {
+    show(){
+      return this.$store.article
+    }
+  },
 };
 </script>
