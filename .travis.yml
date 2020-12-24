@@ -1,11 +1,26 @@
 language: node_js
 node_js:
-  - lts/*
-cache: npm
+- 10.16.0
+cache:
+  directories:
+  - node_modules
+install:
+- yarn install
+# before_script: 
+
 script:
-  - yarn serve
-deploy:
-  provider: pages
-  local_dir: build
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+- yarn serve
+
+after_script: 
+  - cd ./dist
+  - git init
+  - git config user.name "huydinh"
+  - git config user.email "huydnjs1905007@fpt.edu.vn"
+  - git add .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:deploy
+  - ssh [email protected] 'cd /your-path && git fetch --all && git reset --hard origin/deploy && git pull'
+
+branches:
+  only:
+  - master
