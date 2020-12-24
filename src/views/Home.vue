@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     show(){
-      return this.$store.article
+      return this.$store.state
     }
   },
 };

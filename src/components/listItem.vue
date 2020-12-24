@@ -17,7 +17,7 @@
           <p>by: {{ item.by }}</p>
           <p>type: {{ item.type }}</p>
           <p>time: {{ processDate(item.time) }}</p>
-          <p>comment: {{ item.kids.length }}</p>
+          <p>comment: {{ commentCount(item.kids) }}</p>
         </div>
       </div>
     </div>
@@ -32,6 +32,12 @@ export default {
     processDate(num) {
       return new Date(num * 1000);
     },
+    commentCount(comments){
+      if(comments && comments.length > 0){
+        return comments.length
+      }
+      return 0
+    }
   },
 };
 </script>

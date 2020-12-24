@@ -38,7 +38,6 @@ export default {
       return items.filters((item) => item.id === id);
     },
     getId() {
-      console.log(this.itemId);
       return this.itemId;
     },
   },
@@ -58,7 +57,6 @@ export default {
             .get(`https://hacker-news.firebaseio.com/v0/item/${commentId}.json`)
             .then(res => {
               this.$nextTick(() => {
-                console.log(res.data);
                 this.comments.push(res.data);
               });
             })
@@ -67,7 +65,6 @@ export default {
             });
         });
         this.comments = comments;
-        console.log(JSON.stringify(comments));
       })
       .catch((error) => console.log(error));
   },

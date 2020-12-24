@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import News from "../views/News.vue";
 import Detail from "../components/Detail.vue"
+import topNews from '../views/topNews.vue'
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/new/:id',
     name: 'detail',
     component: Detail
+  },
+  {
+    path: '/topnews',
+    name: 'topnews',
+    component: topNews
   }
 ];
 

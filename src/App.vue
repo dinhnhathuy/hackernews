@@ -6,7 +6,8 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/news">News</router-link> |
       <router-link to="/sports">Sports</router-link> |
-      <router-link to="/Finances">Finances</router-link>
+      <router-link to="/Finances">Finances</router-link> | 
+      <router-link to="/topnews">Top news</router-link>
     </div>
     <router-view />
   </div>
